@@ -1,0 +1,51 @@
+{% extends 'farmer/farmerbase.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    #inp {
+        border: 1px solid #C5EACA !important;
+    }
+</style>
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center mb-5" style="max-width: 500px;">
+            <h2 class="text-primary text-uppercase">Farmtech</h2>
+
+        </div>
+        <div class="row g-5">
+            {% for i in farm %}
+            <div class="col-lg-4 col-md-6">
+                <div class="row g-0">
+                    <div class="col-10">
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="/static/media/{{i.img}}"
+                                style="height:300px; width:auto; border-radius:10px" alt="">
+                            <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
+                                style="background: rgba(52, 173, 84, .85);">
+                                <center>
+                                    <h4 class="text-white">{{i.name}}</h4>
+                                </center>
+
+                            </div>
+                        </div>
+                        <br>
+                        <center>
+                            <a href="/applyloan?id={{i.farm_id}}" class="btn btn-danger" style="border-radius:5px"><i
+                                    class="fa fa-plus" aria-hidden="true"></i></i>Apply loans</a>
+                            <!--  <a href="/updateproducts?id={{i.id}}" class="btn btn-danger"
+                                style="border-radius:5px"><i class="fa fa-wrench" aria-hidden="true"></i>Update</a>  -->
+                        </center>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}

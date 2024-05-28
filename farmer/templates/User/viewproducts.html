@@ -1,0 +1,127 @@
+{% extends 'User/user_base.html' %}
+{% load static %}
+{% block content %}
+<!-- Team Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center mb-5" style="max-width: 500px;">
+            <h2 class="text-primary text-uppercase">products</h2>
+
+        </div>
+        <div class="row g-5">
+            {% for i in products %}
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="row g-0">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                        <div class="col-10"
+                            style="background-color: rgb(198, 217, 217);padding: 10px; border-radius: 10px;">
+                            <div class="position-relative">
+                                <img class="img-fluid w-100" src="/static/media/{{i.img}}"
+                                    style="height:300px; width:auto; border-radius:10px" alt="">
+                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
+                                    style="background: rgba(52, 173, 84, .85);">
+                                    <center>
+                                        <h4 class="text-white" style="text-transform: uppercase;">{{i.name}}</h4>
+                                    </center>
+
+                                </div>
+                            </div>
+                            <br>
+                            <center>
+
+
+
+                                <p style="color: black;">Price : {{i.price}} / Kg <br>Total Stock : {{i.quantity}} left
+                                </p>
+
+                                <input type="text" class="form-control" placeholder="Enter Qty" name="qty"
+                                    style="border-radius: 10px;" id=""><br>
+                                    <input type="hidden" name="pid" value="{{i.id}}" id="">
+                                    <input type="hidden" name="fid" value="{{i.fid_id}}" id="">
+                                    <input type="hidden" name="price" value="{{i.price}}" id="">
+                                <button type="submit" class="btn btn-outline-success" style="border-radius: 5px;">Buy
+                                    Now</button>
+                            </center>
+                        </div>
+                    </form>
+                        {% comment %} <div class="col-2">
+                            <div
+                                class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-twitter text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-facebook-f text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-linkedin-in text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-instagram text-secondary"></i></a>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            
+            {% endfor %}
+        </div>
+        {% comment %} <div class="col-lg-4 col-md-6">
+            <div class="row g-0">
+                <div class="col-10">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="{% static 'img/team-2.jpg' %}" alt="">
+                        <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
+                            style="background: rgba(52, 173, 84, .85);">
+                            <h4 class="text-white">Farmer Name</h4>
+                            <span class="text-white">Designation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-twitter text-secondary"></i></a>
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-facebook-f text-secondary"></i></a>
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-linkedin-in text-secondary"></i></a>
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-instagram text-secondary"></i></a>
+                    </div>
+                </div> {% endcomment %}
+                {% comment %}
+            </div>
+        </div> {% endcomment %}
+        {% comment %} <div class="col-lg-4 col-md-6">
+            <div class="row g-0">
+                <div class="col-10">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="{% static 'img/team-3.jpg' %}" alt="">
+                        <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
+                            style="background: rgba(52, 173, 84, .85);">
+                            <h4 class="text-white">Farmer Name</h4>
+                            <span class="text-white">Designation</span>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+                {% comment %} <div class="col-2">
+                    <div class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-twitter text-secondary"></i></a>
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-facebook-f text-secondary"></i></a>
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-linkedin-in text-secondary"></i></a>
+                        <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                class="fab fa-instagram text-secondary"></i></a>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+
+
+
+
+        <!-- Team End -->
+
+
+        {% endblock %}

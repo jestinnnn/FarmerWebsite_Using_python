@@ -1,0 +1,64 @@
+{% extends 'farmer/farmerbase.html' %}
+{% load static %}
+{% block content %}
+<center>
+<h2 style="text-align:center;">Vehicle</h2><br>
+<table border="2" cellpadding="10px" cellspacing="10px">
+    <thead>
+        <th>Vehicle</th>
+        <th>price</th>
+        <th>farmer</th>
+        <th>farmtech</th>
+        <th>booking date</th>
+        <th>ending date</th>
+        <th>amount</th>
+        <th>action</th>
+    </thead>
+    <tbody>
+        {% for j in vehicle %}
+        <tr>
+            <td>{{j.vid.type}}</td>
+            <td>{{j.vid.amount}}</td>
+            <td>{{j.fid.name}}</td>
+            <td>{{j.techid.name}}</td>
+            <td>{{j.startingdate}}</td>
+            <td>{{j.endingdate}}</td>
+            <td>{{j.totalamount}}</td>
+            <td><a href="/deletevehicle?vid={{j.id}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+        </tr>   
+        {% endfor %}
+    </tbody>
+</table>
+
+<br><br>
+
+<h2 style="text-align:center;">Land</h2><br>
+<table border="2" cellpadding="10px" cellspacing="10px">
+    <thead>
+        <th>land</th>
+        <th>price</th>
+        <th>farmer</th>
+        <th>farmtech</th>
+        <th>booking date</th>
+        <th>ending date</th>
+        <th>amount</th>
+        <th>action</th>
+    </thead>
+    <tbody>
+        {% for i in land %}
+        <tr>
+            <td>{{i.lid.area}}</td>
+            <td>{{i.lid.amount}}</td>
+            <td>{{i.fid.name}}</td>
+            <td>{{i.techid.name}}</td>
+            <td>{{i.startingdate}}</td>
+            <td>{{i.endingdate}}</td>
+            <td>{{i.totalamount}}</td>
+            <td><a href="/deleteland?lid={{i.id}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+        </tr>   
+        {% endfor %}
+    </tbody>
+</table>
+
+</center>
+{% endblock %}

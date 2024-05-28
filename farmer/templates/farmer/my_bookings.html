@@ -1,0 +1,41 @@
+{% extends 'farmer/farmerbase.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    #table{
+        text-align: center;
+        width: 80%;
+        vertical-align: middle;
+    }
+</style>
+<br>
+
+<center>
+    <h1><b>My Product Bookings</b></h1><br>
+</center>
+
+<table align="center" cellpadding="10" cellspacing="10" class="table table-bordered" id="table">
+    <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>User</th>
+        <th>Qty</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    {% for i in view %}
+    <tr>
+        <td><img src="/static/media/{{i.pid.img}}" alt="" width="100px"></td>
+        <td>{{i.pid.name}}</td>
+        <td>{{i.uid.name}}</td>
+        <td>{{i.qty}} x {{i.pid.price}}</td>
+        <td>Rs.{{i.amount}} /-</td>
+        <td>{{i.status}}</td>
+        <td><a href="/delete_my_bookings?bid={{i.id}}" class="btn btn-outline-danger" style="border-radius: 10px;">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

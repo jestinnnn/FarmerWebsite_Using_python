@@ -1,0 +1,55 @@
+{% extends 'farmer/farmerbase.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    #inp {
+        border: 1px solid #C5EACA !important;
+        border-radius: 10px;
+    }
+</style>
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center mb-5" style="max-width: 500px;">
+            <h2 class="text-primary text-uppercase">Loan Requests</h2>
+
+        </div>
+        
+        <div class="row g-5">
+            <h2>Loan Details</h2>
+            {% for i in view %}
+            <div class="col-lg-4 col-md-6">
+                <div class="row g-0">
+                    <div class="col-10">
+                        <div class="position-relative" style="box-shadow: 0px 0px 10px rgb(182, 192, 196)">
+
+
+                            <div class="start-0 bottom-0 w-100 py-3 px-4"
+                                style="background: rgba(91, 203, 121, 0.85);border-radius: 10px;">
+
+                                <center>
+                                    <img src="/static/media/{{i.img}}" width="100px" alt="">
+                                    <br><br>
+                                    <p class="text-white"><h3><b style="color: #ffffff;">{{i.name}}</b></h3> <br>
+                                    <p class="text-white">Loan Details <br>
+
+                                        {{i.desc}}
+
+                                    </p><br>
+                                    <a href="{{i.url}}" class="btn btn-primary">View Scheme</a>
+                                    <br><br>
+                                </center>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

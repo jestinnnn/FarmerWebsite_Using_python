@@ -1,0 +1,107 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+{% block content %}
+<!-- Contact Start -->
+
+<style>
+    .form-control {
+        border-radius: 10px;
+    }
+
+    #inp {
+        border: 1px solid #C5EACA !important;
+    }
+</style>
+<div class="container-fluid py-5">
+    <div class="container" style="padding:10px;">
+        <div class="mx-auto text-center mb-5" style="max-width: 500px;">
+
+            <!-- <h1 class="display-5">Farmtech Registration...!!</h1> -->
+        </div>
+        <div class="row g-0">
+            <div class="col-md-3"></div>
+            <div class="col-lg-6">
+                <div class="bg-light h-100 p-5" style="border-radius: 10px;" id="inp">
+                    <form method="post" enctype="multipart/form-data">
+                        <h6 class="display-5">Farmtech Register...!!</h6><br>
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <input type="text" name="Uname" id="inp" class="form-control bg-light border-0 px-4"
+                                    placeholder="Your Name" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="email" name="email" id="inp" class="form-control bg-light border-0 px-4"
+                                    placeholder="Your Email" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" name="mob" id="inp" pattern="[6789][0-9]{9}" maxlength="10"
+                                    minlength="10" class="form-control bg-light border-0 px-4"
+                                    placeholder="contact number" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12">
+                                <label style="color:black;">Gender:</label><br>
+                                <input type="radio" name="gender"><span style="color:black;">&nbsp; Male</span>
+                                <input type="radio" name="gender"><span style="color:black;">&nbsp; Female</span>
+                            </div>
+
+
+                            <div class="col-12">
+                                <label style="color:black;">Profile Image:</label><br>
+                                <input type="file" name="img" id="inp" class="form-control bg-light border-0 px-4"
+                                    required>
+                            </div>
+                            <div class="col-12">
+                                <input type="password" id="inp" name="password"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                    class="form-control bg-light border-0 px-4" placeholder="enter your password"
+                                    style="height: 55px;" required>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-secondary w-100 py-3" type="submit">Register Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% comment %} <div class="col-lg-5">
+                <div class="bg-secondary h-100 p-5">
+                    <h2 class="text-white mb-4">Get In Touch</h2>
+                    <div class="d-flex mb-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
+                            <i class="bi bi-geo-alt fs-4 text-white"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h5 class="text-white">Our Office</h5>
+                            <span class="text-white">123 Street, New York, USA</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
+                            <i class="bi bi-envelope-open fs-4 text-white"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h5 class="text-white">Email Us</h5>
+                            <span class="text-white">info@example.com</span>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
+                            <i class="bi bi-phone-vibrate fs-4 text-white"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h5 class="text-white">Call Us</h5>
+                            <span class="text-white">+012 345 6789</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> {% endcomment %}
+    </div>
+</div>
+<!-- Contact End -->
+{% endblock %}
